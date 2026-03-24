@@ -7,25 +7,21 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// fake database (RAM)
 let posts = [];
 
-// test root
 app.get("/", (req, res) => {
-  res.send("API is running...");
+  res.send("API running...");
 });
 
-// GET all posts
 app.get("/posts", (req, res) => {
   res.json(posts);
 });
 
-// CREATE post
 app.post("/posts", (req, res) => {
   const { text } = req.body;
 
   if (!text) {
-    return res.status(400).json({ error: "Text is required" });
+    return res.status(400).json({ error: "Text required" });
   }
 
   const newPost = {
@@ -39,5 +35,5 @@ app.post("/posts", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log("Server running on port " + PORT);
 });
