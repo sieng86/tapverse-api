@@ -1,4 +1,4 @@
-const express = require("express");
+equire("express");
 const app = express();
 
 app.use(express.json());
