@@ -29,7 +29,7 @@ app.get("/list", async (req, res) => {
 })
 
 // SOCIAL
-app.post("/post", async (req, res) => {
+app.post("/posts", async (req, res) => {
   const { username, content } = req.body
   const { error } = await supabase.from("posts").insert([{ username, content }])
   if (error) return res.json({ error: error.message })
